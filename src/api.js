@@ -5,8 +5,6 @@
  * @version 1.0.0
  */
 
-const url = 'https://www.googleapis.com/books/v1/volumes?q=4'
-
 /**
  * Gets a randomized book from the url.
  *
@@ -14,6 +12,8 @@ const url = 'https://www.googleapis.com/books/v1/volumes?q=4'
  */
 export async function getBooks () {
   try {
+    const startPage = randomizeStartPage()
+    const url = `https://www.googleapis.com/books/v1/volumes?q=subject:fiction&printType=books&startIndex=${startPage}`
     const response = await fetch(url)
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`)
@@ -23,9 +23,17 @@ export async function getBooks () {
     // randomisera index
     const randomIndex = Math.floor(Math.random() * result.items.length)
     // visa bok
-    console.log(result.items[randomIndex].volumeInfo)
     return result.items[randomIndex].volumeInfo
   } catch (error) {
     console.error(error.message)
   }
+}
+
+/**
+ * Randomizes the start page of the api results.
+ *
+ * @returns {number} - A randomized number.
+ */
+function randomizeStartPage () {
+  return Math.floor(Math.random() * 100)
 }

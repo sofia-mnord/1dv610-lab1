@@ -3,3 +3,6 @@ A student project for the course 1DV610 at the Linnaus University in Kalmar, Swe
 
 ## How to use
 Clone the project and open with Visual Studio Code. Right click on the file ```index.html``` and choose "Open with Live Server".
+
+![start of application](./img/startapplication.PNG)
+![book recommendation](./img/bookrecommendation.PNG)

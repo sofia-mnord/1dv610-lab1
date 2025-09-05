@@ -9,10 +9,15 @@ html, body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+	align-items: center;
 }
 
 body {
 	background-color: #f1f2ed;
+}
+
+h1 {
+	font-size: 1.7rem;
 }
 
 div {
@@ -21,7 +26,7 @@ div {
 
 #nameInput {
 	margin-right: 0.8rem;
-	width: 30%;
+	width: 50%;
 	max-width: 400px;
 	height: 1.5rem;
 }
@@ -41,4 +46,17 @@ div {
 
 p {
 	font-size: 1.2rem;
+}
+
+#pageWrapper {
+	background-color: white;
+	border-radius: 1rem;
+	max-width: 800px;
+	margin-top: 2rem;
+	box-shadow: 2px 2px 20px 5px rgb(0 0 0 / 5%);
+}
+
+#inputWrapper {
+	display: flex;
+	justify-content: center;
 }

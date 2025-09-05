@@ -9,7 +9,7 @@ import { getBooks } from './api.js'
 
 const userInput = document.getElementById('nameInput')
 const submitBtn = document.getElementById('submitBtn')
-const welcomeDiv = document.getElementById('welcomeMessageContainer')
+const pageWrapper = document.getElementById('pageWrapper')
 
 submitBtn.addEventListener('click', async () => {
   submitBtn.disabled = true
@@ -21,26 +21,24 @@ submitBtn.addEventListener('click', async () => {
     return
   }
 
-  welcomeDiv.remove()
+  pageWrapper.innerHTML = ''
 
   const greeting = document.createElement('h2')
   greeting.textContent = `Hello ${inputName}!`
 
-  const greetingDiv = document.createElement('div')
-  greetingDiv.appendChild(greeting)
+  pageWrapper.appendChild(greeting)
 
   const book = await getBooks()
   if (book) {
     const bookTitleAndAuthor = document.createElement('p')
     bookTitleAndAuthor.textContent = `Your book recommendation is: ${book.title} by ${book.authors}`
-    greetingDiv.appendChild(bookTitleAndAuthor)
+    pageWrapper.appendChild(bookTitleAndAuthor)
   }
 
   if (book.imageLinks?.thumbnail) {
     const img = document.createElement('img')
     img.src = book.imageLinks.thumbnail
     img.alt = book.title
-    greetingDiv.appendChild(img)
+    pageWrapper.appendChild(img)
   }
-  document.body.appendChild(greetingDiv)
 })

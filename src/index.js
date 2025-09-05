@@ -41,4 +41,11 @@ submitBtn.addEventListener('click', async () => {
     img.alt = book.title
     pageWrapper.appendChild(img)
   }
+
+  const backButton = document.createElement('button')
+  backButton.textContent = 'Back'
+  pageWrapper.appendChild(backButton)
+  backButton.addEventListener('click', () => {
+    return location.reload()
+  })
 })

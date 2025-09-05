@@ -26,8 +26,7 @@ div {
 
 #nameInput {
 	margin-right: 0.8rem;
-	width: 50%;
-	max-width: 400px;
+	max-width: 500px;
 	height: 1.5rem;
 }
 
@@ -46,17 +45,36 @@ div {
 
 p {
 	font-size: 1.2rem;
+	margin-bottom: 2rem;
 }
 
 #pageWrapper {
 	background-color: white;
 	border-radius: 1rem;
-	max-width: 800px;
+	width: 800px;
+	height: 500px;
 	margin-top: 2rem;
 	box-shadow: 2px 2px 20px 5px rgb(0 0 0 / 5%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #inputWrapper {
 	display: flex;
 	justify-content: center;
+}
+
+button {
+	background-color: #143109;
+	color: white;
+	font-size: 1.2rem;
+	padding: 0.5rem;
+	border-radius: 0.3rem;
+	cursor: pointer;
+	margin-top: 2rem;
+}
+
+button:hover {
+	background-color: #000000;
 }

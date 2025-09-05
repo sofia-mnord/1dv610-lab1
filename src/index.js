@@ -11,7 +11,6 @@ const userInput = document.getElementById('nameInput')
 const submitBtn = document.getElementById('submitBtn')
 const welcomeDiv = document.getElementById('welcomeMessageContainer')
 
-// sätt upp eventlyssnare på submit-knappen
 submitBtn.addEventListener('click', async () => {
   submitBtn.disabled = true
   const inputName = userInput.value.trim()
@@ -21,11 +20,10 @@ submitBtn.addEventListener('click', async () => {
     submitBtn.disabled = false
   }
 
-  // ta bort översta diven
   welcomeDiv.remove()
 
   const greeting = document.createElement('h2')
-  greeting.textContent = `Welcome ${inputName}!`
+  greeting.textContent = `Hello ${inputName}!`
 
   const greetingDiv = document.createElement('div')
   greetingDiv.appendChild(greeting)

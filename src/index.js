@@ -18,6 +18,7 @@ submitBtn.addEventListener('click', async () => {
   if (!inputName) {
     alert('Please enter a name.')
     submitBtn.disabled = false
+    return
   }
 
   welcomeDiv.remove()

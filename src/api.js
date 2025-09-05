@@ -9,6 +9,8 @@ const url = 'https://www.googleapis.com/books/v1/volumes?q=4'
 
 /**
  * Gets a randomized book from the url.
+ *
+ * @returns {object} - A json object containing all the info of the book.
  */
 export async function getBooks () {
   try {
@@ -21,8 +23,8 @@ export async function getBooks () {
     // randomisera index
     const randomIndex = Math.floor(Math.random() * result.items.length)
     // visa bok
-    const book = result.items[randomIndex].volumeInfo
-    console.log(book)
+    console.log(result.items[randomIndex].volumeInfo)
+    return result.items[randomIndex].volumeInfo
   } catch (error) {
     console.error(error.message)
   }

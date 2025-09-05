@@ -12,7 +12,7 @@ const submitBtn = document.getElementById('submitBtn')
 const welcomeDiv = document.getElementById('welcomeMessageContainer')
 
 // sätt upp eventlyssnare på submit-knappen
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', async () => {
   submitBtn.disabled = true
   const inputName = userInput.value
 
@@ -20,12 +20,16 @@ submitBtn.addEventListener('click', () => {
   welcomeDiv.remove()
 
   const greeting = document.createElement('h2')
-  const greetingContent = document.createTextNode(`Welcome ${inputName}!`)
-  greeting.appendChild(greetingContent)
+  greeting.textContent = `Welcome ${inputName}!`
 
   const greetingDiv = document.createElement('div')
   greetingDiv.appendChild(greeting)
-  document.body.appendChild(greetingDiv)
 
-  getBooks()
+  const book = await getBooks()
+  if (book) {
+    const bookTitleAndAuthor = document.createElement('p')
+    bookTitleAndAuthor.textContent = `Your book recommendation is: ${book.title} by ${book.authors}`
+    greetingDiv.appendChild(bookTitleAndAuthor)
+  }
+  document.body.appendChild(greetingDiv)
 })
